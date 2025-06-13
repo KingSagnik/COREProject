@@ -631,26 +631,16 @@ function App() {
       setIssueStatus("Issuing...");
       const provider = new ethers.BrowserProvider(window.ethereum);
       const signer = await provider.getSigner();
-      const contract = new ethers.Contract(contractAddress, abi, signer);
-      const tx = await contract.issueCertificate(recipient, uri);
-      const receipt = await tx.wait();
+      const contractWithSigner = new ethers.Contract(contractAddress, abi, signer);
+      const contractWithProvider = new ethers.Contract(contractAddress, abi, provider);
 
-      // Find the CertificateIssued event in the logs
-      const event = receipt.logs
-        .map(log => {
-          try {
-            return contract.interface.parseLog(log);
-          } catch {
-            return null;
-          }
-        })
-        .find(parsed => parsed && parsed.name === "CertificateIssued");
+      // Get the next certificate ID before issuing (read-only)
+      const nextId = await contractWithProvider.nextCertificateId();
 
-      if (event) {
-        setIssueStatus(`Certificate issued! ID: ${event.args.certificateId.toString()}`);
-      } else {
-        setIssueStatus("Certificate issued, but could not find event for ID.");
-      }
+      const tx = await contractWithSigner.issueCertificate(recipient, uri);
+      await tx.wait();
+
+      setIssueStatus(`Certificate issued! ID: ${nextId.toString()}`);
     } catch (err) {
       setIssueStatus("Error: " + (err?.info?.error?.message || err.message));
     }

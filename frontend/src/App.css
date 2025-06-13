@@ -1,5 +1,8 @@
 .App {
   text-align: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+  color: #ffffff;
 }
 
 .App-logo {
@@ -14,18 +17,125 @@
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  padding: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
-.App-link {
-  color: #61dafb;
+h2 {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  color: #4CAF50;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+h3 {
+  font-size: 1.8rem;
+  color: #4CAF50;
+  margin-bottom: 1.5rem;
+}
+
+button {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 600;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+button:hover {
+  background-color: #45a049;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+input {
+  padding: 12px;
+  border: 2px solid #4CAF50;
+  border-radius: 8px;
+  font-size: 1rem;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
+  margin: 8px 0;
+  transition: all 0.3s ease;
+}
+
+input:focus {
+  outline: none;
+  border-color: #45a049;
+  box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.2);
+}
+
+input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  padding: 2rem;
+  margin: 2rem 0;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.wallet-info {
+  background: rgba(76, 175, 80, 0.1);
+  padding: 1rem;
+  border-radius: 8px;
+  margin: 1rem 0;
+  font-family: monospace;
+}
+
+.status-message {
+  margin-top: 1rem;
+  padding: 1rem;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.error {
+  color: #ff6b6b;
+}
+
+.success {
+  color: #4CAF50;
+}
+
+.verify-result {
+  margin-top: 1rem;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  text-align: left;
+}
+
+.verify-result div {
+  margin: 0.5rem 0;
+}
+
+@media (max-width: 600px) {
+  .App-header {
+    padding: 1rem;
+  }
+  
+  input {
+    width: 100% !important;
+  }
+  
+  button {
+    width: 100%;
+    margin: 1rem 0;
+  }
 }
 
 @keyframes App-logo-spin {

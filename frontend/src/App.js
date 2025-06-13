@@ -666,43 +666,46 @@ function App() {
         {!account ? (
           <button onClick={connectWallet}>Connect Wallet</button>
         ) : (
-          <p>Connected: {account}</p>
+          <div className="wallet-info">
+            Connected: {account}
+          </div>
         )}
 
-        <div style={{ margin: "2em 0" }}>
+        <div className="card">
           <h3>Issue Certificate</h3>
           <input
             type="text"
             placeholder="Recipient Address"
             value={recipient}
             onChange={e => setRecipient(e.target.value)}
-            style={{ width: "300px" }}
-          /><br />
+          />
           <input
             type="text"
             placeholder="Certificate Metadata URI"
             value={uri}
             onChange={e => setUri(e.target.value)}
-            style={{ width: "300px", marginTop: "0.5em" }}
-          /><br />
-          <button onClick={issueCertificate} style={{ marginTop: "1em" }}>Issue Certificate</button>
-          <div>{issueStatus}</div>
+          />
+          <button onClick={issueCertificate}>Issue Certificate</button>
+          {issueStatus && (
+            <div className={`status-message ${issueStatus.includes('Error') ? 'error' : 'success'}`}>
+              {issueStatus}
+            </div>
+          )}
         </div>
 
-        <div style={{ margin: "2em 0" }}>
+        <div className="card">
           <h3>Verify Certificate</h3>
           <input
             type="number"
             placeholder="Certificate ID"
             value={verifyId}
             onChange={e => setVerifyId(e.target.value)}
-            style={{ width: "100px" }}
           />
-          <button onClick={verifyCertificate} style={{ marginLeft: "1em" }}>Verify</button>
+          <button onClick={verifyCertificate}>Verify</button>
           {verifyResult && (
-            <div style={{ marginTop: "1em" }}>
+            <div className="verify-result">
               {verifyResult.error ? (
-                <span style={{ color: "red" }}>{verifyResult.error}</span>
+                <div className="error">{verifyResult.error}</div>
               ) : (
                 <div>
                   <div><b>Owner:</b> {verifyResult.owner}</div>

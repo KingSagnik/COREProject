@@ -144,9 +144,10 @@ We aim to create a trustworthy, decentralized, and scalable certification infras
 
 ### Screenshots
 
-![Certificate Issuer Dashboard](https://github.com/user-attachments/assets/202c4c9d-564d-4bed-ab96-aff52cb3a2be)
+![Certificate issuer](https://github.com/user-attachments/assets/54f4c447-912c-4f6c-838b-a3935cb4e434)
 
-![Verification UI](https://github.com/user-attachments/assets/c499019e-2147-4f11-bd72-7aaadbf7f1ea)
+![Contract on explorer](https://github.com/user-attachments/assets/a345ffb5-42a1-408e-9f79-813d24f30731)
+
 
 ---
 

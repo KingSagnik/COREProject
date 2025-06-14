@@ -1,122 +1,240 @@
 # Blockchain Certificate Issuer
 
-A full-stack blockchain application for issuing and verifying certificates on the CORE blockchain. This project demonstrates the implementation of a decentralized certificate management system using smart contracts and a modern React frontend.
+---
 
-## 🌟 Features
+## Table of Contents
 
-- **Smart Contract Integration**: ERC721-based certificate issuance system
-- **Modern UI**: Clean and responsive user interface with dark theme
-- **MetaMask Integration**: Seamless wallet connection and transaction handling
-- **Certificate Management**:
-  - Issue new certificates with custom metadata
-  - Verify certificate ownership and details
-  - View certificate metadata and ownership information
-- **Real-time Status Updates**: Immediate feedback on transaction status
-- **Mobile Responsive**: Works seamlessly on all device sizes
+1. [Project Description](#project-description)
+2. [Project Vision](#project-vision)
+3. [Contract Address](#contract-address)
+4. [Key Features](#key-features)
 
-## 🛠️ Tech Stack
+   * [Certificate Issuance](#certificate-issuance)
+   * [Verification System](#verification-system)
+   * [Smart Contract Security](#smart-contract-security)
+   * [User-Friendly Interface](#user-friendly-interface)
+   * [Real-Time Feedback](#real-time-feedback)
+5. [Future Scope](#future-scope)
 
-- **Smart Contracts**:
-  - Solidity
-  - Hardhat
-  - OpenZeppelin Contracts
-- **Frontend**:
-  - React
-  - Ethers.js
-  - Modern CSS with animations
-- **Blockchain**:
-  - CORE Blockchain
-  - MetaMask Integration
+   * [On-Chain Certificate Templates](#on-chain-certificate-templates)
+   * [Batch Certificate Issuance](#batch-certificate-issuance)
+   * [Revocation System](#revocation-system)
+   * [Decentralized Identity Integration](#decentralized-identity-integration)
+   * [IPFS-Based Metadata](#ipfs-based-metadata)
+   * [Cross-Chain Verification](#cross-chain-verification)
+6. [Frontend Showcase](#frontend-showcase)
+7. [Getting Started](#getting-started)
 
-## 🚀 Getting Started
+   * [Prerequisites](#prerequisites)
+   * [Installation](#installation)
+   * [Usage](#usage)
+8. [Technology Stack](#technology-stack)
+9. [Contribution](#contribution)
+10. [License](#license)
+11. [Contact](#contact)
+
+---
+
+## Project Description
+
+Blockchain Certificate Issuer is a full-stack decentralized application (dApp) built on the CORE blockchain that enables organizations to issue, store, and verify digital certificates securely using smart contracts. Leveraging the power of the ERC721 NFT standard, this project ensures each certificate is uniquely identifiable and permanently verifiable on-chain.
+
+This solution is ideal for universities, training programs, event organizers, or institutions that require tamper-proof certificate generation, ownership tracking, and metadata transparency.
+
+---
+
+## Project Vision
+
+We aim to create a trustworthy, decentralized, and scalable certification infrastructure for the Web3 world. With blockchain-based verification:
+
+* *Authenticity is Guaranteed:* Each certificate is an NFT with immutable metadata.
+* *No More Paper Trails:* All certifications are verifiable digitally and globally.
+* *Tamper-Proof Records:* Ownership and data cannot be forged or lost.
+* *Easy Verification:* Anyone can verify the validity of a certificate using just the token ID.
+* *Decentralized Control:* No central authority is required for validation.
+
+---
+
+## Contract Address
+
+> `0xYourContractAddressHere`
+> *(Replace with deployed contract address on CORE)*
+
+---
+
+## Key Features
+
+### Certificate Issuance
+
+* Issue certificates as ERC721 NFTs
+* Store metadata URI with each certificate
+* Only contract owner can issue certificates
+* Certificates are permanently owned by recipients
+
+### Verification System
+
+* Input certificate ID to fetch on-chain metadata
+* View ownership and metadata in real time
+* Publicly verifiable on any blockchain explorer
+
+### Smart Contract Security
+
+* Built using OpenZeppelin’s secure libraries
+* Ownership control using `Ownable` contract
+* Immutable record once certificate is issued
+* Core network integration for low-cost transactions
+
+### User-Friendly Interface
+
+* Responsive React-based frontend
+* MetaMask wallet integration for authentication
+* Dark theme and mobile optimization
+* Clean dashboard for issuing and verifying certificates
+
+### Real-Time Feedback
+
+* Get instant feedback on blockchain transactions
+* Transaction pending and confirmed notifications
+* Error handling and success modals included
+
+---
+
+## Future Scope
+
+### On-Chain Certificate Templates
+
+* Allow users to upload and select visual templates
+* Include dynamic name/date injection on-chain
+
+### Batch Certificate Issuance
+
+* Enable bulk certificate issuance to multiple addresses
+* CSV/JSON file support for uploading recipients
+
+### Revocation System
+
+* Implement on-chain revocation mechanism
+* Mark specific certificates as revoked or expired
+
+### Decentralized Identity Integration
+
+* Integrate with DID protocols for certificate linking
+* Verifiable Credentials (VC) support
+
+### IPFS-Based Metadata
+
+* Decentralized storage of certificate data using IPFS
+* Add images, PDFs, and extended metadata
+
+### Cross-Chain Verification
+
+* Deploy contracts across multiple EVM-compatible chains
+* View certificates on Ethereum, Polygon, BNB, CORE, etc.
+
+---
+
+## Frontend Showcase
+
+### Dashboard Features:
+
+* **Connect Wallet** to CORE blockchain via MetaMask
+* **Issue Certificate** using recipient address and metadata URI
+* **Verify Certificate** using certificate ID
+* **View Certificate** ownership and metadata in a sleek UI
+
+### Screenshots
+
+![Certificate Issuer Dashboard](https://github.com/user-attachments/assets/202c4c9d-564d-4bed-ab96-aff52cb3a2be)
+
+![Verification UI](https://github.com/user-attachments/assets/c499019e-2147-4f11-bd72-7aaadbf7f1ea)
+
+---
+
+## Getting Started
 
 ### Prerequisites
 
-- Node.js (v14 or higher)
-- MetaMask browser extension
-- CORE blockchain network configured in MetaMask
+* Node.js (v14 or higher)
+* MetaMask browser extension
+* CORE network configured in MetaMask
 
 ### Installation
 
 1. Clone the repository:
-   ```bash
-   git clone https://github.com/yourusername/COREProject.git
-   cd COREProject
-   ```
+
+```bash
+git clone https://github.com/yourusername/CORECertificateIssuer.git
+cd CORECertificateIssuer
+```
 
 2. Install dependencies:
-   ```bash
-   # Install Hardhat dependencies
-   cd contracts
-   npm install
 
-   # Install frontend dependencies
-   cd ../frontend
-   npm install
-   ```
+```bash
+# Smart contract setup
+cd contracts
+npm install
 
-3. Configure environment:
-   - Copy `.env.example` to `.env` in the contracts directory
-   - Update the environment variables as needed
+# Frontend setup
+cd ../frontend
+npm install
+```
+
+3. Set up environment:
+
+* Copy `.env.example` to `.env` in the `contracts` folder
+* Add your desired configuration values
 
 ### Running the Application
 
-1. Start the local blockchain:
-   ```bash
-   cd contracts
-   npx hardhat node
-   ```
+```bash
+# Start local blockchain
+cd contracts
+npx hardhat node
 
-2. Deploy the smart contract:
-   ```bash
-   npx hardhat run scripts/deploy.js --network localhost
-   ```
+# Deploy contract to local blockchain
+npx hardhat run scripts/deploy.js --network localhost
 
-3. Start the frontend:
-   ```bash
-   cd frontend
-   npm start
-   ```
+# Launch frontend
+cd ../frontend
+npm start
+```
 
-## 💻 Usage
+---
 
-1. **Connect Wallet**:
-   - Click "Connect Wallet" to link your MetaMask wallet
-   - Ensure you're connected to the CORE network
+## Technology Stack
 
-2. **Issue Certificate**:
-   - Enter the recipient's wallet address
-   - Provide the certificate metadata URI
-   - Click "Issue Certificate"
-   - Confirm the transaction in MetaMask
+* **Smart Contracts**: Solidity, Hardhat, OpenZeppelin
+* **Frontend**: React.js, Ethers.js
+* **Blockchain**: CORE Blockchain, MetaMask Wallet
+* **Storage (Future)**: IPFS (for off-chain metadata)
 
-3. **Verify Certificate**:
-   - Enter the certificate ID
-   - Click "Verify"
-   - View the certificate details and ownership information
+---
 
-## 📝 Smart Contract
+## Contribution
 
-The `CertificateIssuer` contract is an ERC721 token contract that:
-- Inherits from OpenZeppelin's ERC721URIStorage
-- Implements certificate issuance functionality
-- Emits events for certificate creation
-- Maintains certificate ownership records
-
-## 🔒 Security
-
-- Only the contract owner can issue certificates
-- Certificate ownership is immutable
-- Metadata URIs are permanently linked to certificates
-- All transactions require MetaMask confirmation
-
-## 🤝 Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
+Contributions and ideas are welcome!
+Please follow these steps to contribute:
 
 1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
+2. Create your feature branch:
 
+```bash
+git checkout -b feature/YourFeature
+```
+
+3. Commit your changes
+4. Push to your fork:
+
+```bash
+git push origin feature/YourFeature
+```
+
+5. Open a Pull Request
+---
+## Contact
+
+For questions, issues, or collaboration:
+📩 Email: [sagnikd587@gmail.com](mailto:sagnikd587@gmail.com)
+🌐 GitHub: [@KingSagnik](https://github.com/yourusername)
+
+---
